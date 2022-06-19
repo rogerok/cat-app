@@ -1,7 +1,7 @@
 const data = [
   {
     id: 1,
-    taste: "с фуа-гра",
+    taste: "c фуа-гра",
     portions: "10",
     gift: "мышь в подарок",
     weight: "0,5",
@@ -10,7 +10,7 @@ const data = [
   },
   {
     id: 2,
-    taste: "с рыбой",
+    taste: "c рыбой",
     portions: "40",
     gift: "2 мыши в подарок",
     weight: "2",
@@ -19,7 +19,7 @@ const data = [
   },
   {
     id: 3,
-    taste: "с курой",
+    taste: "c курой",
     portions: "100",
     gift: "5 мышей в подарок заказчик доволен",
     weight: "10",

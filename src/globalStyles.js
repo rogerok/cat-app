@@ -9,39 +9,46 @@ export const GlobalStyle = createGlobalStyle`
   ${reset}
 
   @font-face {
-      font-family: 'Trebuchet MS';
-      font-style: normal;
-      font-weight: 400;
-      src: local(''), local(''),
-      url(${TrebuchetMSRegular}) format('woff');
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''), local(''),
+    url(${TrebuchetMSRegular}) format('woff');
   }
   @font-face {
-      font-family: 'Trebuchet MS';
-      font-style: normal;
-      font-weight: 700;
-      src: local(''), local(''),
-      url(${TrebuchetMSBold}) format('woff');
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: 700;
+    src: local(''), local(''),
+    url(${TrebuchetMSBold}) format('woff');
   }
   html {
-      background-color: #000000;
-      font-family: 'Trebuchet MS', sans-serif;
-      font-size: 14px;
-      font-style: normal;
-      font-weight: 400;
-      color: #FFFFFF;
-      background: url(${background}) no-repeat center center fixed;
-      background-size: cover;
+    background-color: #000000;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    color: #FFFFFF;
+    background: url(${background}) no-repeat center center fixed;
+    background-size: cover;
   }
 `;
 
 export const Container = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
   margin: 0 auto;
   max-width: 1280px;
   width: 100%;
   @media (max-width: 961px) {
+    position: static;
+    transform: translate(0, 0);
     width: 100%;
   }
 `;
@@ -51,6 +58,7 @@ export const Section = styled.section`
   max-width: 1120px;
   padding: 37px 80px 70px 80px;
   @media (max-width: 961px) {
+    positon: static;
     max-width: 800px;
     padding: 20px 40px;
   }

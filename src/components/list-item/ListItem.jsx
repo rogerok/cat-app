@@ -29,12 +29,12 @@ const ListItem = ({ data }) => {
       : "Сказочное заморское яство";
 
   const getDescriptionContent = () => {
-    if (disabled) return `Печалька, с ${data.taste} закончился`;
+    if (disabled) return `Печалька, ${data.taste} закончился`;
     if (selected) return data.description;
     if (!selected)
       return (
         <>
-          Чего сидишь? Порадуй котэ,{" "}
+          Чего сидишь? Порадуй котэ,
           <Button state={variant} onClick={handleClick}>
             купи
           </Button>
