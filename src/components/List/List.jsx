@@ -6,6 +6,7 @@ import ListItem from "../list-item/ListItem";
 export const StyledList = styled.ul`
   display: flex;
   color: #000000;
+  padding-top: 30px;
 `;
 
 const List = () => {

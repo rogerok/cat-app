@@ -36,18 +36,22 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 1280px;
+  padding: 37px 80px 70px 80px;
   width: 100%;
   height: 100vh;
   background: url(${background}) center center no-repeat;
+  background-color: black;
 `;
 export const Section = styled.section`
   width: 100%;
-  max-width: 1280px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 36px 80px 67px 80px;
 `;
 export const MainHeader = styled.h1`
-  margin-bottom: 24px;
+  margin-bottom: 5px;
   text-align: center;
   font-size: calc((36 / 14) * 1rem);
+  font-weight: 400;
 `;

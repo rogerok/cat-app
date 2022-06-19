@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
+import useGetVariant from "../../hooks/useGetVariant";
 
 import {
   AdditionalInfo,
   Circle,
-  ListItemInner,
+  CardInner,
   Label,
-  StyledListItem,
+  Card,
   Title,
+  Order,
+  Button,
+  StyledListItem,
 } from "./styles";
 
 const ListItem = () => {
-  const [selected, setSelected] = useState(false);
+  const { handleClick, handleMouseEnter, handleMouseLeave, variant, disabled } =
+    useGetVariant();
+  /*   const [selected, setSelected] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [selectedUnHovered, setSelectedUnHovered] = useState(false);
   const [variant, setVariant] = useState();
@@ -24,7 +30,6 @@ const ListItem = () => {
     if (selected && !hovered && !selectedUnHovered)
       return setVariant("selected");
   }, [selected, hovered, selectedUnHovered]);
-  console.log(variant);
 
   const disabled = false;
   const activable = (cb) => {
@@ -43,39 +48,41 @@ const ListItem = () => {
   });
   const handleMouseLeave = activable(() => {
     if (selected && hovered) setSelectedUnHovered((prev) => !prev);
-    /*  if (!selected && hovered) setHovered(false); */
-    /* if (selected) */ setHovered(false);
-  });
-  /*   console.log(selected, hovered, selectedUnHovered);
-   */
+  }); */
+
   return (
-    <StyledListItem
-      onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      state={variant}
-      disabled={disabled}
-    >
-      <ListItemInner>
-        <Label>Сказочное заморское яство</Label>
-        <Title>
-          Нямушка<span>с фуа-гра</span>
-        </Title>
-        <AdditionalInfo>
-          <span>
-            <b>10</b> порций
-          </span>
-          <span>
-            <b></b>мышь в подарок
-          </span>
-        </AdditionalInfo>
-        <Circle state={variant}>
-          <p>
-            0,5
-            <span>кг</span>
-          </p>
-        </Circle>
-      </ListItemInner>
+    <StyledListItem>
+      <Card
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        state={variant}
+        disabled={disabled}
+      >
+        <CardInner>
+          <Label>Сказочное заморское яство</Label>
+          <Title>
+            Нямушка<span>с фуа-гра</span>
+          </Title>
+          <AdditionalInfo>
+            <span>
+              <b>10</b> порций
+            </span>
+            <span>
+              <b></b>мышь в подарок
+            </span>
+          </AdditionalInfo>
+          <Circle state={variant}>
+            <p>
+              0,5
+              <span>кг</span>
+            </p>
+          </Circle>
+        </CardInner>
+      </Card>
+      <Order>
+        Чего сидишь? Порадуй котэ, <Button state={variant}>купи</Button>
+      </Order>
     </StyledListItem>
   );
 };
