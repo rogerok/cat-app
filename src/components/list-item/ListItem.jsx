@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import useGetVariant from "../../hooks/useGetVariant";
 
 import {
@@ -8,47 +8,41 @@ import {
   Label,
   Card,
   Title,
-  Order,
+  Description,
   Button,
   StyledListItem,
 } from "./styles";
 
-const ListItem = () => {
-  const { handleClick, handleMouseEnter, handleMouseLeave, variant, disabled } =
-    useGetVariant();
-  /*   const [selected, setSelected] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  const [selectedUnHovered, setSelectedUnHovered] = useState(false);
-  const [variant, setVariant] = useState();
+const ListItem = ({ data }) => {
+  const {
+    handleClick,
+    handleMouseEnter,
+    handleMouseLeave,
+    variant,
+    disabled,
+    selected,
+  } = useGetVariant(data.stock);
 
-  useEffect(() => {
-    if (selected && !hovered && selectedUnHovered)
-      return setVariant("selectedUnHovered");
-    if (!selected && !hovered) return setVariant("default");
-    if (!selected && hovered) return setVariant("defaultHovered");
-    if (selected && hovered) return setVariant("selected");
-    if (selected && !hovered && !selectedUnHovered)
-      return setVariant("selected");
-  }, [selected, hovered, selectedUnHovered]);
+  const labelText =
+    variant === "selectedUnHovered"
+      ? "Котэ не одобряет?"
+      : "Сказочное заморское яство";
 
-  const disabled = false;
-  const activable = (cb) => {
-    return function wrap(...args) {
-      if (!disabled) return cb(...args);
-    };
+  const getDescriptionContent = () => {
+    if (disabled) return `Печалька, с ${data.taste} закончился`;
+    if (selected) return data.description;
+    if (!selected)
+      return (
+        <>
+          Чего сидишь? Порадуй котэ,{" "}
+          <Button state={variant} onClick={handleClick}>
+            купи
+          </Button>
+        </>
+      );
   };
 
-  const handleClick = activable(() => {
-    setSelected((prev) => !prev);
-  });
-
-  const handleMouseEnter = activable(() => {
-    if (!selected) setHovered(true);
-    if (selected) setSelectedUnHovered(false);
-  });
-  const handleMouseLeave = activable(() => {
-    if (selected && hovered) setSelectedUnHovered((prev) => !prev);
-  }); */
+  const descriptionContent = getDescriptionContent();
 
   return (
     <StyledListItem>
@@ -60,29 +54,25 @@ const ListItem = () => {
         disabled={disabled}
       >
         <CardInner>
-          <Label>Сказочное заморское яство</Label>
+          <Label>{labelText}</Label>
           <Title>
-            Нямушка<span>с фуа-гра</span>
+            Нямушка<span>{data.taste}</span>
           </Title>
           <AdditionalInfo>
             <span>
-              <b>10</b> порций
+              <b>{data.portions}</b> порций
             </span>
-            <span>
-              <b></b>мышь в подарок
-            </span>
+            <span>{data.gift}</span>
           </AdditionalInfo>
           <Circle state={variant}>
             <p>
-              0,5
+              {data.weight}
               <span>кг</span>
             </p>
           </Circle>
         </CardInner>
       </Card>
-      <Order>
-        Чего сидишь? Порадуй котэ, <Button state={variant}>купи</Button>
-      </Order>
+      <Description disabled={disabled}>{descriptionContent}</Description>
     </StyledListItem>
   );
 };

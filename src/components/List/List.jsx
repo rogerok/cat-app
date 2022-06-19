@@ -1,18 +1,14 @@
 import React from "react";
-import styled from "styled-components";
-
+import data from "../../data";
 import ListItem from "../list-item/ListItem";
-
-export const StyledList = styled.ul`
-  display: flex;
-  color: #000000;
-  padding-top: 30px;
-`;
+import { StyledList } from "./styles";
 
 const List = () => {
   return (
     <StyledList>
-      <ListItem></ListItem>
+      {data.map((item) => (
+        <ListItem data={item} />
+      ))}
     </StyledList>
   );
 };

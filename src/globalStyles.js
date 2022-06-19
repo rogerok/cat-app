@@ -29,6 +29,8 @@ export const GlobalStyle = createGlobalStyle`
       font-style: normal;
       font-weight: 400;
       color: #FFFFFF;
+      background: url(${background}) no-repeat center center fixed;
+      background-size: cover;
   }
 `;
 
@@ -36,18 +38,22 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   max-width: 1280px;
-  padding: 37px 80px 70px 80px;
   width: 100%;
-  height: 100vh;
-  background: url(${background}) center center no-repeat;
-  background-color: black;
+  @media (max-width: 961px) {
+    width: 100%;
+  }
 `;
 export const Section = styled.section`
+  align-self: center;
   width: 100%;
   max-width: 1120px;
-  margin: 0 auto;
-  padding: 36px 80px 67px 80px;
+  padding: 37px 80px 70px 80px;
+  @media (max-width: 961px) {
+    max-width: 800px;
+    padding: 20px 40px;
+  }
 `;
 export const MainHeader = styled.h1`
   margin-bottom: 5px;
