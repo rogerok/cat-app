@@ -8,6 +8,7 @@ export const theme = {
     default: "#1698D9",
     defaultHovered: "#2EA8E6",
     selected: "#D91667",
-    selectedUnHovered: "#E52E7A",
+    /*     selectedUnHovered: "#E52E7A", */
+    selectedUnHovered: "#000000",
   },
 };
